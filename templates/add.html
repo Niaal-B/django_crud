@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+        <h4>Add Student</h4>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="name">
+            <input type="text" name="email">
+            <input type="password" name="password">
+            <input type="submit" value="add" class="btn btn-primary">
+
+        </form>
+       
+        <h2>User Details</h2>
+        {% for d in d %}
+        <div class="container">
+            <div class="row">
+                <div class="col"><p>{{d.username}}</p></div>
+                <div class="col"><a href="{% url 'delete' d.id %}" class="btn btn-success">Delete</a></div>
+                <div class="col"><a href="{% url 'update' d.id %}" class="btn btn-danger">Update</a></div>
+            </div>
+        </div>
+      
+        
+
+
+        {% endfor %}
+{% endblock content %}
